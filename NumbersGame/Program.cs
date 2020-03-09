@@ -7,7 +7,7 @@ namespace NumbersGame
     {
         static void Main(string[] args)
         {
-            ExampleRun.Run();
+            YouGuess.Run();
         }
     }
 }
