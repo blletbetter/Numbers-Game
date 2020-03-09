@@ -1,0 +1,8 @@
+C:\Users\bllet\OneDrive\Documents\GitHub\Numbers-Game\NumberLibrary\bin\Debug\netcoreapp3.1\NumberLibrary.deps.json
+C:\Users\bllet\OneDrive\Documents\GitHub\Numbers-Game\NumberLibrary\bin\Debug\netcoreapp3.1\NumberLibrary.dll
+C:\Users\bllet\OneDrive\Documents\GitHub\Numbers-Game\NumberLibrary\bin\Debug\netcoreapp3.1\NumberLibrary.pdb
+C:\Users\bllet\OneDrive\Documents\GitHub\Numbers-Game\NumberLibrary\obj\Debug\netcoreapp3.1\NumberLibrary.csprojAssemblyReference.cache
+C:\Users\bllet\OneDrive\Documents\GitHub\Numbers-Game\NumberLibrary\obj\Debug\netcoreapp3.1\NumberLibrary.AssemblyInfoInputs.cache
+C:\Users\bllet\OneDrive\Documents\GitHub\Numbers-Game\NumberLibrary\obj\Debug\netcoreapp3.1\NumberLibrary.AssemblyInfo.cs
+C:\Users\bllet\OneDrive\Documents\GitHub\Numbers-Game\NumberLibrary\obj\Debug\netcoreapp3.1\NumberLibrary.dll
+C:\Users\bllet\OneDrive\Documents\GitHub\Numbers-Game\NumberLibrary\obj\Debug\netcoreapp3.1\NumberLibrary.pdb

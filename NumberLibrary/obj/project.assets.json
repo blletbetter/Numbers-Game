@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "NumberLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/NumberLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/NumberLibrary.dll": {}
-        }
-      }
-    }
+    ".NETCoreApp,Version=v3.1": {}
   },
-  "libraries": {
-    "NumberLibrary/1.0.0": {
-      "type": "project",
-      "path": "../NumberLibrary/NumberLibrary.csproj",
-      "msbuildProject": "../NumberLibrary/NumberLibrary.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "NumberLibrary >= 1.0.0"
-    ]
+    ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
     "C:\\Users\\bllet\\.nuget\\packages\\": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bllet\\OneDrive\\Documents\\GitHub\\Numbers-Game\\NumbersGame\\NumbersGame.csproj",
-      "projectName": "NumbersGame",
-      "projectPath": "C:\\Users\\bllet\\OneDrive\\Documents\\GitHub\\Numbers-Game\\NumbersGame\\NumbersGame.csproj",
+      "projectUniqueName": "C:\\Users\\bllet\\OneDrive\\Documents\\GitHub\\Numbers-Game\\NumberLibrary\\NumberLibrary.csproj",
+      "projectName": "NumberLibrary",
+      "projectPath": "C:\\Users\\bllet\\OneDrive\\Documents\\GitHub\\Numbers-Game\\NumberLibrary\\NumberLibrary.csproj",
       "packagesPath": "C:\\Users\\bllet\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bllet\\OneDrive\\Documents\\GitHub\\Numbers-Game\\NumbersGame\\obj\\",
+      "outputPath": "C:\\Users\\bllet\\OneDrive\\Documents\\GitHub\\Numbers-Game\\NumberLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bllet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -51,11 +32,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\Users\\bllet\\OneDrive\\Documents\\GitHub\\Numbers-Game\\NumberLibrary\\NumberLibrary.csproj": {
-              "projectPath": "C:\\Users\\bllet\\OneDrive\\Documents\\GitHub\\Numbers-Game\\NumberLibrary\\NumberLibrary.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

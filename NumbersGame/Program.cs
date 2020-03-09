@@ -1,4 +1,5 @@
 ﻿using System;
+using NumberLibrary;
 
 namespace NumbersGame
 {
@@ -6,7 +7,7 @@ namespace NumbersGame
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ExampleRun.Run();
         }
     }
 }
