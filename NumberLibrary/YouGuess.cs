@@ -13,9 +13,14 @@ namespace NumberLibrary
             {
                 list[i] = ++i;
             }
-            foreach(var i in list)
+            Random random = new Random();
+            int rndNum = random.Next(list.Length);
+            int input;
+            Console.WriteLine("Please guess a number between 1 - 1000. \n \nYour guess: ");
+            input = Int64..
+            while(input != rndNum)
             {
-                Console.WriteLine(i);
+
             }
         }
     }
