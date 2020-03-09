@@ -1,17 +1,61 @@
 ﻿using System;
 using NumberLibrary;
 
+
 namespace NumbersGame
 {
     class Program
     {
         static void Main(string[] args)
         {
+            int? input;
+            input = null;
+            do
+            {
+                if(input != null)
+                {
+                    Console.WriteLine("Press any key to continue...");
+                    Console.Read();
+                }
+                Console.Clear();
+                Console.WriteLine("Welcome to the number guessing game.");
+                Console.WriteLine("Can you beat the computer in attempts to guess a random number?");
+                Console.WriteLine("Choose one of the following:");
+                Console.WriteLine("1.) See the computers thought process \n2.) Guess a number yourself \n3.) Have the computer guess your number \n4.) Exit");
+                
+                Console.Write("You choose: ");
+                input = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Press any key to continue...");
+                Console.Read();
+                switch (input)
+                {
+                    case 1:
+                        Console.Clear();
+                        Run();
+                       
+                        break;
+                    case 2:
+                        Console.Clear();
+                        HumanGuess();
+                        
+                        break;
+                    case 3:
+                        Console.Clear();
+                        ComputerGuess();
+                        
+                        break;
+                    case 4:
+                        Console.WriteLine("\n\n\nThanks for playing!");
+                        return;
+                    default:
+                        Console.WriteLine("\n\nInvalid option, please try again.");
+                        Console.Clear();
+                        
+                        break;
 
+                }
 
-            //HumanGuess();
-            ComputerGuess();
-
+            } while (input != 4);
             static void HumanGuess()
             {
                 int input;
@@ -61,9 +105,9 @@ namespace NumbersGame
                 {
                     list[i] = ++i;
                 }
-                int rndNum, input, value;
+                int rndNum, input, value, attempts;
                 value = list.Length / 2;
-                
+                attempts = 0;
                 Console.WriteLine("For this, you will input a number for the computer to guess btween 1 - 100.");
                 Console.WriteLine("You will then tell the computer if it's guess is higher or lower then the number you entered.");
                 do
@@ -75,14 +119,16 @@ namespace NumbersGame
                         Console.WriteLine("number entered is outside needed field. \n \n Try again. \n");
                     }
                 } while (rndNum < 1 && rndNum > 100);
-                while(rndNum != list[value])
+                while (rndNum != list[value])
                 {
+                    attempts++;
                     int[] list2 = list[(value)..];
                     int[] list3 = list[..(value)];
                     Console.WriteLine("\n \n \n Press any key to continue...");
                     Console.ReadKey();
                     Console.Clear();
                     Console.WriteLine($"\nThe number the computer is trying to guess is {rndNum}");
+                    Console.WriteLine($"Computer attempt {attempts}");
                     Console.WriteLine($"\nThe computer's guess is {list[value]} \n \n");
                     Console.WriteLine("Enter \n1.) if the guess is higher than your number. \n2.) if the guess is lower than your number.");
                     Console.WriteLine("Your responce is: ");
@@ -116,7 +162,56 @@ namespace NumbersGame
                 Console.ReadKey();
                 Console.Clear();
                 Console.WriteLine($"\nThe number the computer is trying to guess is {rndNum}");
+                Console.WriteLine($"Computer attempt {attempts}");
                 Console.WriteLine($"\nThe computer's guess is {list[value]} \n \n");
+            }
+            static void Run()
+            {
+                int[] list = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                int value = 7;
+                Console.WriteLine("The number to find is 7");
+                FindNumber(list, value);
+                
+
+
+            }
+            static void FindNumber(int[] list, int value)
+            {
+                int middle = list.Length / 2;
+                Console.WriteLine($"\nThe computer guesses the number is {list[middle]}");
+                while (list[middle] != value)
+                {
+
+
+
+                    int[] list2 = list[(middle)..];
+                    int[] list3 = list[..(middle)];
+                    if (list[middle] > value)
+                    {
+                        list = list3;
+                        Console.WriteLine("The array becomes: ");
+                        foreach (var i in list)
+                        {
+                            Console.Write($"{i}, ");
+                        }
+                        middle = list.Length / 2;
+
+
+                    }
+                    if (list[middle] < value)
+                    {
+                        list = list2;
+                        Console.WriteLine("The array becomes: ");
+                        foreach (var i in list)
+                        {
+                            Console.Write($"{i}, ");
+                        }
+                        middle = list.Length / 2;
+
+                    }
+                    Console.WriteLine($"\nThe computer guesses the number is {list[middle]}");
+                }
+                Console.WriteLine($"The computer guessed the correct number!");
             }
         }
     }

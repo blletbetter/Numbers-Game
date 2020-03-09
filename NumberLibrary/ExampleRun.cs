@@ -10,7 +10,9 @@ namespace NumberLibrary
             int value = 7;
             Console.WriteLine("The number to find is 7");
             FindNumber(list, value);
-            
+            Console.WriteLine("Press any key to continue...");
+            Console.Read();
+
 
         }
         public static void FindNumber(int[] list, int value)
