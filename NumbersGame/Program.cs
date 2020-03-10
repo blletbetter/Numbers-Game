@@ -11,11 +11,6 @@ namespace NumbersGame
             int input;
             do
             {
-                //if(input != null)
-                //{
-                //    Console.WriteLine("Press any key to continue...");
-                //    Console.ReadKey();
-                //}
                 MainMenu();
                 var val = Console.ReadLine();
                 while (ValidOption(val, out input)==false)
@@ -60,7 +55,7 @@ namespace NumbersGame
             
             static void HumanGuess()
             {
-                int input;
+                int input = 0;
                 int[] list = new int[1000];
                 for (int i = 0; i < list.Length;)
                 {
@@ -68,16 +63,24 @@ namespace NumbersGame
                 }
                 Random random = new Random();
                 int rndNum = random.Next(list.Length);
-                Console.WriteLine("Please guess a number between 1 - 1000. \nYou have 11 guesses. ");
+                Console.WriteLine("The computer has choosen a random number between 1 - 1000");
+                Console.WriteLine("You have 11 guesses. ");
                 int f;
                 for (f = 11; f > 0; --f)
                 {
-                    var val = Console.ReadLine();
-                    while (ValidOption(val, out input) == false)
+
+                    do
                     {
-                        Console.WriteLine("\n \nYour guess: ");
-                        input = Int32.Parse(Console.ReadLine());
-                    }
+                        Console.WriteLine("Enter a number between 1 - 1000");
+                        Console.WriteLine("Your guess is: ");
+                        var val = Console.ReadLine();
+                        while (ValidOption(val, out input) == false)
+                        {
+                            Console.WriteLine("Enter a number between 1 - 1000");
+                            Console.WriteLine("Your guess is: ");
+                            val = Console.ReadLine();
+                        }
+                    } while (input < 1 || input > 1000);
                     if (input == rndNum)
                     {
                         break;
@@ -92,11 +95,12 @@ namespace NumbersGame
                         Console.WriteLine("Your guess is lower than the number.");
                         Console.WriteLine($"you have {f - 1} guesses left.");
                     }
-
+                    Console.WriteLine("\n \n");
                 }
                 if (f > 0)
                 {
                     Console.WriteLine("You guessed correctly!");
+                    Console.WriteLine($"you took {f - 1} guesses.");
                 }
                 else
                 {
@@ -111,9 +115,9 @@ namespace NumbersGame
                 {
                     list[i] = ++i;
                 }
-                int rndNum, input, value, attempts;
+                int rndNum, input, value;
                 value = list.Length / 2;
-                attempts = 0;
+                
                 Console.WriteLine("For this, you will input a number for the computer to guess between 1 - 100.");
                 Console.WriteLine("You will then tell the computer if it's guess is higher or lower then the number you entered.");
                 do
@@ -127,17 +131,16 @@ namespace NumbersGame
                         Console.WriteLine("Your number to be guessed is: ");
                         val = Console.ReadLine();
                     }
-                } while (rndNum < 1 && rndNum > 100);
-                while (rndNum != list[value])
+                } while (rndNum < 1 || rndNum > 100);
+                int attempts;
+                for (attempts = 0; attempts < 10; attempts++)
                 {
-                    attempts++;
+                    
                     int[] list2 = list[(value)..];
                     int[] list3 = list[..(value)];
-                    Console.WriteLine("\n \n \n Press any key to continue...");
-                    Console.ReadKey();
                     Console.Clear();
                     Console.WriteLine($"\nThe number the computer is trying to guess is {rndNum}");
-                    Console.WriteLine($"Computer attempt {attempts}");
+                    Console.WriteLine($"Computer attempt {attempts + 1}");
                     Console.WriteLine($"\nThe computer's guess is {list[value]} \n \n");
                     Console.WriteLine("Enter \n1.) if the guess is higher than your number. \n2.) if the guess is lower than your number.");
                     Console.WriteLine("3.) if the guess was correct");
@@ -152,7 +155,7 @@ namespace NumbersGame
                             Console.WriteLine("Your responce is: ");
                             val = Console.ReadLine();
                         }
-                    } while (input < 1 && input > 3);
+                    } while (input < 1 || input > 3);
                     switch (input)
                     {
                         case 1:
@@ -173,39 +176,35 @@ namespace NumbersGame
                             }
                             value = list.Length / 2;
                             break;
+                        case 3:
+                            
+                            Console.WriteLine("The computer has guessed the correct answer!");
+                            Console.WriteLine($"It took the computer {attempts + 1} attempts.");
+                            return;
                         default:
                             Console.WriteLine("Choice was not a valid option.");
                             break;
                     }
+                    Console.WriteLine("\n \n \n Press any key to continue...");
+                    Console.ReadKey();
                 }
-                Console.WriteLine("\n \n \n Press any key to continue...");
-                Console.ReadKey();
-                Console.Clear();
-                Console.WriteLine($"\nThe number the computer is trying to guess is {rndNum}");
-                Console.WriteLine($"Computer attempt {attempts}");
-                Console.WriteLine($"\nThe computer's guess is {list[value]} \n \n");
+                
             }
             static void Run()
             {
                 int[] list = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
                 int value;
-                Console.WriteLine("Enter a number 1 - 10");
-                var val = Console.ReadLine();
-                while (ValidOption(val, out value) == false)
+                do
                 {
                     Console.WriteLine("Enter a number 1 - 10");
-                    val = Console.ReadLine();
-                }
-                while (value > 10 || value < 1)
-                {
-                    Console.WriteLine("Enter a number 1 - 10");
+                    var val = Console.ReadLine();
                     while (ValidOption(val, out value) == false)
                     {
                         Console.WriteLine("Enter a number 1 - 10");
                         val = Console.ReadLine();
                     }
-                }
-                Console.WriteLine($"The number to find is {list[value]}");
+                } while (value > 10 || value < 1);
+                Console.WriteLine($"The number to find is {list[value - 1]}");
                 FindNumber(list, value);
                 
 
@@ -234,7 +233,7 @@ namespace NumbersGame
 
 
                     }
-                    if (list[middle] < value)
+                    else if (list[middle] < value)
                     {
                         list = list2;
                         Console.WriteLine("The array becomes: ");
@@ -247,7 +246,7 @@ namespace NumbersGame
                     }
                     Console.WriteLine($"\nThe computer guesses the number is {list[middle]}");
                 }
-                Console.WriteLine($"The computer guessed the correct number!");
+                Console.WriteLine($"The computer got to the correct number!");
             }
             static bool ValidOption(string input, out int option)
             {
